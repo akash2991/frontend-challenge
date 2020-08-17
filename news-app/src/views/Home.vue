@@ -33,12 +33,14 @@
 import debounce from 'lodash/debounce'
 import axios from 'axios'
 import Article from '../components/Article'
+require('dotenv').config()
 
-const stage = process.env.NODE_ENV
+// const stage = process.env.NODE_ENV //'development
+const stage = 'dev'
 axios.defaults.baseURL = `${process.env.VUE_APP_SERVICE_URL}${stage}`
 axios.defaults.withCredentials = true
 axios.defaults.headers.common['Content-Type'] = 'application/json'
-
+console.log(process.env, 'helo')
 export default {
   components: {
     Article
@@ -49,7 +51,7 @@ export default {
     contentType: 'top UK headlines'
   }),
   created() {
-    console.log(process.env[`VUE_APP_SERVICE_URL_${stage}`])
+    // console.log(process.env[`VUE_APP_SERVICE_URL_${stage}`])
     this.loadArticles('headlines', JSON.stringify({ country: 'gb' }))
   },
   methods: {
