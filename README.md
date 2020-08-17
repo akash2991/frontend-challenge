@@ -10,11 +10,18 @@
   3. screens
   4. service
   5. utils
-- Each folder has its own index, so that relative paths of its exports are insulated even if we shuffle the contents inside the folder and it also mitigates the problem of deeply nested imports
+
+## Folder Contents
+
 - Tests folder contains tests
 - Inside the components folder, **component driven development** is followed (atoms, molecules, organisms) to keep the components modular and insulated.
 - Service folder **separates business logic from UI**. API calls are extracted from the component and can be easily reused by any component using a simple function call
 - Utils folder contains all the other utilities that are used with in the app like constants, helper functions etc.
+
+Each folder exports its own index file. It has dual benefits
+
+- relative paths of its exports are insulated even if we shuffle the contents inside the folder
+- it also mitigates the problem of deeply nested imports
 
 ## Technical Choices
 
