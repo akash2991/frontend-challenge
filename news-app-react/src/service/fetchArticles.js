@@ -83,9 +83,9 @@ export const useFetchArticles = ({
         setArticleList(articles);
         setIsLoading(false);
       } catch (error) {
-        // setArticleList([]);
-        // setError(new Error('We Encountered Some Problem'));
-        setArticleList(dummyData);
+        setArticleList([]);
+        setError(new Error('We Encountered Some Problem'));
+        // setArticleList(dummyData);
         setIsLoading(false);
       }
     }
