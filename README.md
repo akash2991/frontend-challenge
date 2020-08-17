@@ -11,7 +11,7 @@
   4. service
   5. utils
 - Each folder has its own index, so that relative paths of its exports are insulated even if we shuffle the contents inside the folder and it also mitigates the problem of deeply nested imports
-- Tests folder contains all the tests. Its content follow the same folder structure as that of the `/news-app-react/src` folder.
+- Tests folder contains tests
 - Inside the components folder, **component driven development** is followed (atoms, molecules, organisms) to keep the components modular and insulated.
 - Service folder **separates business logic from UI**. API calls are extracted from the component and can be easily reused by any component using a simple function call
 - Utils folder contains all the other utilities that are used with in the app like constants, helper functions etc.
@@ -27,6 +27,10 @@
 ## To start the app
 
 go to `/news-app-react` and execute _npm i && npm start_
+
+## To start test
+
+go to `/news-app-react` and execute _npm test_
 
 ## Analytics Task
 

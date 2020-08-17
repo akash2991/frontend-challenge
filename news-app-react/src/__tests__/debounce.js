@@ -1,4 +1,4 @@
-import { debounce } from '../../utils/helpers';
+import { debounce } from '../utils/helpers';
 jest.useFakeTimers();
 
 describe('debounce', () => {

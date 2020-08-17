@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { MainBar, NewsArticleList, Picker } from '../components';
 import { useFetchArticles } from '../service';
-import { pickerDataCategory, pickerDataCountry } from '../utils';
+import { pickerDataCategory, pickerDataCountry, useDebounce } from '../utils';
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
@@ -26,8 +26,9 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [country, setCountry] = useState('');
   const [category, setCategory] = useState('');
+  const debouncedSearchQuery = useDebounce(searchQuery, 500);
   const { data = [], isLoading, error, hideArticle } = useFetchArticles({
-    searchQuery,
+    searchQuery: debouncedSearchQuery,
     country,
     category,
   });
@@ -36,18 +37,8 @@ export default function Home() {
     setSearchQuery(e.target.value);
   }
 
-  function handleKeyPress(event) {
-    // event.key;
-    console.log('event.key: ', event.key);
-    // setSearchQuery(e.target.value);
-  }
-
   return (
-    <div
-      className={classes.mainContainer}
-      onKeyPress={handleKeyPress}
-      onKeyDown={handleKeyPress}
-    >
+    <div className={classes.mainContainer}>
       <MainBar handleSearchFieldInput={handleSearchQuery} />
 
       {isLoading && <LinearProgress color="secondary" />}

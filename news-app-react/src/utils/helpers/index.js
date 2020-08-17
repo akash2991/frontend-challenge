@@ -1,3 +1,3 @@
-import { debounce } from './debounce';
+import { useDebounce } from './debounce';
 
-export { debounce };
+export { useDebounce };

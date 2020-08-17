@@ -20,9 +20,7 @@ function NewsArticleList({ data = [], hideArticle }) {
       hideArticle={() => hideArticle(index)}
     />
   ));
-  const EmptyMessage = (
-    <HeadingText text="News is not available. Please refresh the page" />
-  );
+  const EmptyMessage = <HeadingText text="News List is Empty" />;
 
   return (
     <div className={classes.cardContainer}>
